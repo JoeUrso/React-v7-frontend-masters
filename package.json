@@ -1,20 +1,25 @@
 {
-  "name": "react-v7-frontend-masters",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoeUrso/React-v7-frontend-masters.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JoeUrso/React-v7-frontend-masters/issues"
-  },
-  "homepage": "https://github.com/JoeUrso/React-v7-frontend-masters#readme"
+    "name": "react-v7-frontend-masters",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write \"adopt-me/**/*.{js,jsx}\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JoeUrso/React-v7-frontend-masters.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JoeUrso/React-v7-frontend-masters/issues"
+    },
+    "homepage": "https://github.com/JoeUrso/React-v7-frontend-masters#readme",
+    "devDependencies": {
+        "eslint": "^8.8.0",
+        "eslint-config-prettier": "^8.3.0"
+    }
 }
