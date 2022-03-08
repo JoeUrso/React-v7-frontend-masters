@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SearchParams() {
-    const location = "Seattle, WA";
+    // const location = "Seattle, WA";
+    const [location, setLocation] = useState("");
     return (
         <div className="search-params">
             <form>
@@ -11,10 +12,13 @@ export default function SearchParams() {
                         id="location"
                         value={location}
                         placeholder="location"
+                        onChange={(e) => {
+                            setLocation(e.target.value);
+                        }}
                     ></input>
                 </label>
+                <button>Submit</button>
             </form>
-            <button>Submit</button>
         </div>
     );
 }
