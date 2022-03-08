@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Pet from "./Pet";
-import UseBreedList from "./useBreedList";
+import useBreedList from "./useBreedList";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -8,7 +8,7 @@ export default function SearchParams() {
     const [location, setLocation] = useState("");
     const [animal, setAnimal] = useState("");
     const [breed, setBreed] = useState("");
-    const [breeds] = UseBreedList(animal);
+    const [breeds] = useBreedList(animal);
     const [pets, setPets] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,12 @@ export default function SearchParams() {
 
     return (
         <div className="search-params">
-            <form>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    requestPets();
+                }}
+            >
                 <label htmlFor="location">
                     location
                     <input
