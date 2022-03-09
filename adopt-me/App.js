@@ -11,11 +11,11 @@ const App = () => {
                 <header>
                     <Link to="/">Adopt Me!</Link>
                 </header>
+                <Routes>
+                    <Route path="/details/:id" element={<Details />} />
+                    <Route path="/" element={<SearchParams />} />
+                </Routes>
             </BrowserRouter>
-            <Routes>
-                <Route path="/details/:id" element={<Details />} />
-                <Route path="/" element={<SearchParams />} />
-            </Routes>
         </StrictMode>
     );
 };
