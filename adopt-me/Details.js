@@ -1,10 +1,28 @@
 import React, { Component } from "react";
+import { useParams } from "react-router-dom";
 
-export default class Details extends Component {
+class Details extends Component {
     constructor(props) {
         super(props);
 
         this.state = { loading: true };
+    }
+
+    async componentDidMount() {
+        const res = await fetch(
+            `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
+        );
+
+        const json = await res.json();
+
+        this.setState(
+            Object.assign(
+                {
+                    loading: false,
+                },
+                json.pets[0]
+            )
+        );
     }
 
     render() {
@@ -28,3 +46,10 @@ export default class Details extends Component {
         );
     }
 }
+
+const WrappedDetails = () => {
+    const params = useParams();
+    return <Details params={params} />;
+};
+
+export default WrappedDetails;
