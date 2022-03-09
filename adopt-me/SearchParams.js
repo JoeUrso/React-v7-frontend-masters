@@ -23,7 +23,6 @@ export default function SearchParams() {
 
         setPets(json.pets);
     }
-
     return (
         <div className="search-params">
             <form
