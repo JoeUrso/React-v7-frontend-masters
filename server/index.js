@@ -1,6 +1,6 @@
 import express from "express";
 import fs from "fs";
-import { renderToString } from "react-dom/server";
+import { renderToNodeStream } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../Int-React-v4-Server-Side-Rendering/App";
 
@@ -12,17 +12,23 @@ const parts = html.split("not rendered");
 
 const app = express();
 
-app.use("frontend", express.static("dist/frontend"));
+app.use("/frontend", express.static("dist/frontend"));
 app.use((req, res) => {
+    res.write(parts[0]);
+
     const reactMarkup = (
         <StaticRouter location={req.url}>
             <App />
         </StaticRouter>
     );
 
-    res.send(parts[0] + renderToString(reactMarkup) + parts[1]);
-    res.end;
+    const stream = renderToNodeStream(reactMarkup);
+    stream.pipe(res, { end: false });
+    stream.on("end", () => {
+        res.write(parts[1]);
+        res.end();
+    });
 });
 
-console.log(`listening on http://localhost${PORT}`);
+console.log(`listening on http://localhost:${PORT}`);
 app.listen(PORT);
