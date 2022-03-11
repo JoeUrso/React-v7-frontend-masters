@@ -38,11 +38,13 @@ export default function SearchParams() {
                     location
                     <input
                         id="location"
+                        type="text"
                         value={location}
                         placeholder="location"
                         onChange={(e) => {
                             setLocation(e.target.value);
                         }}
+                        className="w-60 mb-5 block"
                     ></input>
                 </label>
                 <label htmlFor="animal">
@@ -58,6 +60,7 @@ export default function SearchParams() {
                             setAnimal(e.target.value);
                             setBreed("");
                         }}
+                        className="w-60 mb-5 block"
                     >
                         <option />
                         {ANIMALS.map((animal) => (
@@ -78,6 +81,7 @@ export default function SearchParams() {
                         onBlur={(e) => {
                             setBreed(e.target.value);
                         }}
+                        className="w-60 mb-5 block disabled:opacity-50"
                     >
                         <option />
                         {breeds.map((breed) => (
@@ -97,6 +101,7 @@ export default function SearchParams() {
                         onBlur={(e) => {
                             setTheme(e.target.value);
                         }}
+                        className="w-60 mb-5 block"
                     >
                         <option value="peru">Peru</option>
                         <option value="darkblue">Dark Blue</option>
@@ -104,7 +109,12 @@ export default function SearchParams() {
                         <option value="mediumorchid">Medium Orchid</option>
                     </select>
                 </label>
-                <button style={{ backgroundColor: theme }}>Submit</button>
+                <button
+                    style={{ backgroundColor: theme }}
+                    className="rounded px-6 py-2 text-white hover:opacity-50 border-none"
+                >
+                    Submit
+                </button>
             </form>
             <Results pets={pets} />
         </div>
