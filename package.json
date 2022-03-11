@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write \"adopt-me/**/*.{js,jsx}\"",
         "lint": "eslint \"adopt-me/**/*.{js,jsx}\" --quiet",
-        "dev": "parcel adopt-me/index.html"
+        "dev": "parcel Int-React-v4-Tailwinds-CSS/index.html"
     },
     "repository": {
         "type": "git",
