@@ -34,5 +34,5 @@ export default function UseBreedList(animal: Animal) {
         }
     }, [animal]);
 
-    return [breedList, status];
+    return [breedList, status] as [string[], Status];
 }

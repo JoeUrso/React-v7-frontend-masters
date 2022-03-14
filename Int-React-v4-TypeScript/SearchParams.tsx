@@ -1,27 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Animal, Pet, PetApiResponse } from "./ApiResponsesTypes";
 import Results from "./Results";
 import ThemeContext from "./ThemeContext";
 import useBreedList from "./useBreedList";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 export default function SearchParams() {
     const [location, setLocation] = useState("");
-    const [animal, setAnimal] = useState("");
+    const [animal, setAnimal] = useState("" as Animal);
     const [breed, setBreed] = useState("");
     const [breeds] = useBreedList(animal);
-    const [pets, setPets] = useState([]);
+    const [pets, setPets] = useState([] as Pet[]);
     const [theme, setTheme] = useContext(ThemeContext);
 
     useEffect(() => {
-        requestPets();
+        void requestPets();
     }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
     async function requestPets() {
         const res = await fetch(
             `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
         );
-        const json = await res.json();
+        const json = (await res.json()) as PetApiResponse;
 
         setPets(json.pets);
     }
@@ -30,7 +31,7 @@ export default function SearchParams() {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    requestPets();
+                    void requestPets();
                 }}
             >
                 <label htmlFor="location">
@@ -50,11 +51,11 @@ export default function SearchParams() {
                         id="animal"
                         value={animal}
                         onChange={(e) => {
-                            setAnimal(e.target.value);
+                            setAnimal(e.target.value as Animal);
                             setBreed("");
                         }}
                         onBlur={(e) => {
-                            setAnimal(e.target.value);
+                            setAnimal(e.target.value as Animal);
                             setBreed("");
                         }}
                     >
