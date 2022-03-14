@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write \"adopt-me/**/*.{js,jsx}\"",
-        "lint": "eslint \"adopt-me/**/*.{js,jsx}\" --quiet",
+        "lint": "eslint \"Int-React-v4-TypeScript/**/*.{js,jsx,ts,tsx}\" --quiet",
         "dev": "parcel Int-React-v4-Code-Splitting/index.html",
         "build": "parcel build",
         "start": "npm -s run build && node dist/backend/index.js"
@@ -27,9 +27,12 @@
         "@tailwindcss/forms": "^0.4.0",
         "@types/react": "^17.0.39",
         "@types/react-dom": "^17.0.11",
+        "@typescript-eslint/eslint-plugin": "^5.15.0",
+        "@typescript-eslint/parser": "^5.15.0",
         "autoprefixer": "^10.4.2",
         "eslint": "^8.8.0",
         "eslint-config-prettier": "^8.3.0",
+        "eslint-import-resolver-typescript": "^2.5.0",
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-react": "^7.28.0",
