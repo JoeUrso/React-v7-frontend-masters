@@ -1,7 +1,8 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
+import { Pet as PetType } from "./ApiResponsesTypes";
 import Pet from "./Pet";
 
-export default function Results({ pets }) {
+const Results: FunctionComponent<{ pets: PetType[] }> = ({ pets }) => {
     return (
         <div>
             {!pets.length ? (
@@ -21,4 +22,6 @@ export default function Results({ pets }) {
             )}
         </div>
     );
-}
+};
+
+export default Results;
