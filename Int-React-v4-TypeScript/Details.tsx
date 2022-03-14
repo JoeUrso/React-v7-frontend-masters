@@ -1,18 +1,29 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
+import { Animal, PetApiResponse } from "./ApiResponsesTypes";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import Modal from "./Modal";
 import ThemeContext from "./ThemeContext";
 
-class Details extends Component {
-    state = { loading: true, showModal: false };
+class Details extends Component<{ params: { id?: string } }> {
+    state = {
+        loading: true,
+        showModal: false,
+        animal: "" as Animal,
+        breed: "",
+        city: "",
+        state: "",
+        description: "",
+        name: "",
+        images: [] as string[],
+    };
 
     async componentDidMount() {
         const res = await fetch(
             `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
         );
-        const json = await res.json();
+        const json = (await res.json()) as PetApiResponse;
         this.setState(Object.assign({ loading: false }, json.pets[0]));
     }
 
@@ -73,7 +84,7 @@ class Details extends Component {
 }
 
 const WrappedDetails = () => {
-    const params = useParams();
+    const params = useParams<{ id: string }>();
     return (
         <ErrorBoundary>
             <Details params={params} />;
