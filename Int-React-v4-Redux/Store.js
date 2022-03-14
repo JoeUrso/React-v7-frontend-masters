@@ -3,6 +3,7 @@ import reducer from "./reducers";
 
 const store = createStore(
     reducer,
+    // THIS ENABLES THE REDUX DEV TOOLS
     typeof window === "object" &&
         typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
         ? window.__REDUX_DEVTOOLS_EXTENSION__()
