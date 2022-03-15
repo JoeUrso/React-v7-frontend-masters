@@ -9,6 +9,7 @@
         "typecheck": "tsc --noEmit",
         "dev": "parcel Int-React-v4-Redux/index.html",
         "test": "jest",
+        "test:coverage": "jest --coverage",
         "test:watch": "jest --watch",
         "build": "parcel build",
         "start": "npm -s run build && node dist/backend/index.js"
