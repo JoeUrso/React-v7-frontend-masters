@@ -61,6 +61,12 @@
     "browserslist": [
         "last 2 Chrome versions"
     ],
+    "jest": {
+        "automock": false,
+        "setupFiles": [
+            "./Int-React-v4-Testing/setupJest.js"
+        ]
+    },
     "targets": {
         "frontend": {
             "source": [
