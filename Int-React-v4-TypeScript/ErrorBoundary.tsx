@@ -1,3 +1,5 @@
+// Revisit once you finish other course
+
 import { Component, ErrorInfo } from "react";
 import { Link, Navigate } from "react-router-dom";
 

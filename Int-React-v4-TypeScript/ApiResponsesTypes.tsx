@@ -1,3 +1,5 @@
+// Revisit once you finish other course
+
 export type Animal = "dog" | "cat" | "bird" | "reptile" | "rabbit";
 
 export interface Pet {
